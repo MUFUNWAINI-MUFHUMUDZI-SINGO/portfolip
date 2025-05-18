@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mufunwa | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Include Blackjack font from CDN Fonts -->
+<link href="https://fonts.cdnfonts.com/css/blackjack" rel="stylesheet">
+
+</head>
+<body class="bg-white text-gray-800 font-sans">
+  <!-- Navbar -->
+  
+    <nav class="p-6 shadow-md flex justify-between items-center relative z-50 bg-white">
+
+    <h1 class="text-xl font-bold text-heliotrope" style="font-family: 'Blackjack', cursive;">
+      Mufunwaini Mufhumudzi
+    </h1>
+  
+    <!-- Hamburger Button -->
+    <button id="menu-btn" class="md:hidden block focus:outline-none">
+      <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  
+    <!-- Menu -->
+    <ul id="menu" class="hidden md:flex md:space-x-6 flex-col md:flex-row absolute md:static bg-white md:bg-transparent w-full md:w-auto top-full left-0 md:top-auto md:left-auto shadow-md md:shadow-none z-50">
+
+    <li><a href="#" class="block px-6 py-2 hover:text-yellow-500">Home</a></li>
+      <li><a href="#about" class="block px-6 py-2 hover:text-yellow-500">About</a></li>
+      <li><a href="#skills" class="block px-6 py-2 hover:text-yellow-500">Skills</a></li>
+      <li><a href="#certi" class="block px-6 py-2 hover:text-yellow-500">Certifications</a></li>
+      <li><a href="#projects" class="block px-6 py-2 hover:text-yellow-500">Projects</a></li>
+      <li>
+        <a href="#call" class="block bg-black text-white px-4 py-2 m-2 rounded-full hover:bg-yellow-600 text-center">
+          Contact →
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-pink-50 py-20 px-6 md:px-40">
+  <div class="flex flex-col-reverse md:flex-row items-center gap-12">
+    
+    <!-- Left Text -->
+    <div class="md:w-1/2 text-center md:text-left space-y-8">
+      <h2 class="text-5xl md:text-7xl font-extrabold leading-tight">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600 animate-pulse">
+          Designing
+        </span>
+        Interfaces<br />
+        Writing
+        <span class="text-yellow-500">Code</span> <br />
+        & <span class="text-red-500">Defending</span> Systems
+      </h2>
+
+      <p class="text-lg text-gray-700">
+        Passionate about elegant UI, full-stack web development, and cybersecurity. I create secure and stunning digital experiences that delight users and protect systems.
+      </p>
+
+      <div class="flex flex-col sm:flex-row sm:justify-start justify-center gap-4">
+        <a href="#projects">
+          <button class="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg">
+            View Projects
+          </button>
+        </a>
+        
+        <!-- Button -->
+        <button onclick="openModal()" class="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg">
+          View Resume
+        </button>
+        
+        <!-- Modal -->
+        <div id="resumeModal" class="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50 hidden">
+          <div class="bg-white w-11/12 md:w-3/4 lg:w-1/2 h-4/5 rounded-lg shadow-lg overflow-hidden relative">
+            <button onclick="closeModal()" class="absolute top-2 right-4 text-black text-2xl font-bold">&times;</button>
+            <iframe src="mufunwa-cv.pdf" class="w-full h-full" frameborder="0"></iframe>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex justify-center md:justify-start mt-6 items-center">
+        <img src="https://randomuser.me/api/portraits/women/1.jpg" class="w-12 h-12 rounded-full border-2 border-white -ml-2 first:ml-0 shadow-md" />
+        <img src="https://randomuser.me/api/portraits/men/2.jpg" class="w-12 h-12 rounded-full border-2 border-white -ml-2 shadow-md" />
+        <img src="https://randomuser.me/api/portraits/women/3.jpg" class="w-12 h-12 rounded-full border-2 border-white -ml-2 shadow-md" />
+        <span class="ml-4 font-semibold text-gray-700 text-sm">1K+ Happy Clients</span>
+      </div>
+    </div>
+
+    <!-- Right Image -->
+    <div class="relative md:w-1/2 flex justify-center">
+      <div class="relative z-10">
+        <img src="img/pp.png" alt="Profile Picture"
+     class="rounded-full w-100 h-100 object-cover border-8 border-white shadow-2xl transform transition-all duration-800 hover:-translate-y-6 -translate-y-8" />
+
+      </div>
+
+      <!-- Floating Tags -->
+      <div class="absolute top-6 left-6 bg-teal-500 text-white text-xs px-4 py-1 rounded-full shadow-md">
+        Developer
+      </div>
+      <div class="absolute top-1/2 right-6 bg-yellow-400 text-black text-xs px-4 py-1 rounded-full shadow-md">
+        Designer
+      </div>
+      <div class="absolute bottom-6 left-12 bg-purple-500 text-white text-xs px-4 py-1 rounded-full shadow-md">
+        Hacker
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu');
+
+  menuBtn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+
+
+  function openModal() {
+    document.getElementById('resumeModal').classList.remove('hidden');
+  }
+
+  function closeModal() {
+    document.getElementById('resumeModal').classList.add('hidden');
+  }
+</script>
+<!-- About Me -->
+<section id="about"  class="py-20 px-6 md:px-40 bg-gray-100">
+  <div class="flex flex-col md:flex-row items-center gap-10">
+    <!-- Text -->
+    <div class="md:w-1/2 space-y-6">
+      <h2 class="text-4xl font-bold text-gray-800">About Me</h2>
+      <p class="text-lg text-gray-700">
+      
+        I am a passionate and driven Computer Science graduate with a deep love for technology, problem-solving, and innovation. Over the years, I’ve immersed myself in the world of coding, continuously refining my skills across a variety of languages and frameworks. From front-end design to back-end logic and cybersecurity techniques, I enjoy building secure and scalable solutions that solve real-world problems. I find satisfaction in understanding complex systems and turning ideas into functional and impactful digital products.
+      
+      </p>
+
+      <p class="text-lg text-gray-700">
+        
+        
+        In addition to developing my technical expertise, I am also committed to mentoring and sharing knowledge with others. I believe in lifelong learning and actively pursue growth through online courses, certifications, and hands-on projects. This journey has not only deepened my knowledge but also inspired me to uplift others who are beginning theirs. Whether it's through writing clean code, securing systems, or guiding aspiring developers, I aim to contribute meaningfully to the tech community while evolving as a well-rounded software and cybersecurity professional.
+      </p>
+    </div>
+    <!-- Image -->
+    <div class="md:w-1/4">
+      <img src="img/COVER-Photoroom.png" alt="About Me" class="w-full rounded-lg shadow-lg" />
+    </div>
+  </div>
+</section>
+
+<!-- My Skills -->
+<!-- Skills Section with Background Video -->
+<section id="skills"  class="relative py-20 px-6 md:px-40 text-white overflow-hidden">
+  <!-- Background video -->
+  <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover z-[-1]">
+    <source src="img/Developer Coding Background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <h2 class="text-4xl font-bold mb-12 text-center z-10 relative">My Skills</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 z-10 relative">
+
+    <!-- Front-End Card -->
+    <div class="bg-black bg-opacity-60 p-6 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Front-End</h3>
+      <div class="space-y-4">
+        <div>
+          <p>HTML</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-green-500 h-4 rounded-full text-xs text-white text-center" style="width: 90%;">90%</div>
+          </div>
+        </div>
+        <div>
+          <p>CSS</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-blue-500 h-4 rounded-full text-xs text-white text-center" style="width: 85%;">85%</div>
+          </div>
+        </div>
+        <div>
+          <p>Tailwind</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-cyan-500 h-4 rounded-full text-xs text-white text-center" style="width: 90%;">90%</div>
+          </div>
+        </div>
+        <div>
+          <p>React</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-indigo-500 h-4 rounded-full text-xs text-white text-center" style="width: 80%;">80%</div>
+          </div>
+        </div>
+        <div>
+          <p>JavaScript</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-yellow-500 h-4 rounded-full text-xs text-black text-center" style="width: 85%;">85%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back-End Card -->
+    <div class="bg-black bg-opacity-60 p-6 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-semibold mb-4 text-green-400">Back-End</h3>
+      <div class="space-y-4">
+        <div>
+          <p>Java</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-red-500 h-4 rounded-full text-xs text-white text-center" style="width: 80%;">80%</div>
+          </div>
+        </div>
+        <div>
+          <p>PHP</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-purple-500 h-4 rounded-full text-xs text-white text-center" style="width: 70%;">70%</div>
+          </div>
+        </div>
+        <div>
+          <p>Python</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-blue-700 h-4 rounded-full text-xs text-white text-center" style="width: 85%;">85%</div>
+          </div>
+        </div>
+        <div>
+          <p>SQL</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-teal-500 h-4 rounded-full text-xs text-white text-center" style="width: 75%;">75%</div>
+          </div>
+        </div>
+        <div>
+          <p>C</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-pink-500 h-4 rounded-full text-xs text-white text-center" style="width: 70%;">70%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cybersecurity Card -->
+    <div class="bg-black bg-opacity-60 p-6 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-semibold mb-4 text-red-400">Cybersecurity</h3>
+      <div class="space-y-4">
+        <div>
+          <p> Risk identification and management</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-red-500 h-4 rounded-full text-xs text-white text-center" style="width: 90%;">90%</div>
+          </div>
+        </div>
+        <div>
+          <p>Incident Response, Business Continuity and Disaster Recovery</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-blue-500 h-4 rounded-full text-xs text-white text-center" style="width: 85%;">85%</div>
+          </div>
+        </div>
+        <div>
+          <p>Burp Suite</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-yellow-500 h-4 rounded-full text-xs text-black text-center" style="width: 80%;">80%</div>
+          </div>
+        </div>
+        <div>
+          <p>Metasploit</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-indigo-500 h-4 rounded-full text-xs text-white text-center" style="width: 75%;">75%</div>
+          </div>
+        </div>
+        <div>
+          <p>John the Ripper</p>
+          <div class="w-full bg-gray-300 rounded-full h-4">
+            <div class="bg-gray-700 h-4 rounded-full text-xs text-white text-center" style="width: 65%;">65%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Certificates Section -->
+<!-- Certificates Section -->
+<section  id="certi" class="bg-gradient-to-br from-white via-blue-50 to-purple-100 py-16 px-6 md:px-40">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-4xl font-bold text-gray-800 mb-6">📜 Certificates</h2>
+    <p class="text-lg text-gray-700 mb-10 leading-relaxed">
+      I believe in <span class="font-semibold text-indigo-600">continuous learning</span> as a lifestyle. Staying updated with the latest in
+      technology and sharpening my skills has always been a personal mission. Whether it's mastering a new tool, understanding cybersecurity
+      threats, or diving into data science, I strive to learn, apply, and grow every day.
+    </p>
+  </div>
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-left text-gray-800 text-base">
+    
+    <!-- Coding Certifications -->
+    <div>
+      <h3 class="text-xl font-semibold text-indigo-700 mb-4">💻 Coding</h3>
+      <ul class="space-y-2 list-disc pl-5">
+        <li><strong>Python Programming</strong> – HackerRank</li>
+        <li><strong>SQL Advanced</strong> – HackerRank</li>
+        <li><strong>Java Programming</strong> – SoloLearn</li>
+        <li><strong>HTML Course</strong> – SoloLearn</li>
+        <li><strong>Software Engineer Intern</strong> – HackerRank</li>
+      </ul>
+    </div>
+
+    <!-- Cybersecurity Certifications -->
+    <div>
+      <h3 class="text-xl font-semibold text-red-600 mb-4">🛡️ Cybersecurity</h3>
+      <ul class="space-y-2 list-disc pl-5">
+        <li><strong>Ethical Hacker</strong> – Cisco Networking Academy</li>
+        <li><strong>Junior Cybersecurity Analyst</strong> – Cisco Networking Academy</li>
+        <li><strong>Cybersecurity Fundamentals</strong> – IBM</li>
+      </ul>
+    </div>
+
+    <!-- Other Tech Skills -->
+    <div>
+      <h3 class="text-xl font-semibold text-emerald-700 mb-4">🚀 Other Tech Skills</h3>
+      <ul class="space-y-2 list-disc pl-5">
+        <li><strong>Agile Explorer</strong> – IBM</li>
+        <li><strong>Moodle Instructor</strong> – University of Venda</li>
+        <li><strong>Artificial Intelligence</strong> – IBM</li>
+        <li><strong>Data Science & Analytics</strong> – HP</li>
+        <li><strong>Design Thinking</strong> – HP</li>
+        <li><strong>Prompt Engineering</strong> – AWS</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- Projects -->
+<section id="projects" class="py-20 px-6 md:px-40 bg-white">
+  <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">My Projects</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+      <img src="img/Screenshot 2025-05-18 010916.png" alt="Project 1" class="w-full h-40 object-cover rounded mb-4">
+      <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
+      <p class="text-gray-600">A fully responsive personal website showcasing my skills and projects.</p>
+    </div>
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+      <img src="img/food.png" alt="Project 2" class="w-full h-40 object-cover rounded mb-4">
+      <h3 class="text-xl font-semibold mb-2">Food delivery web application</h3>
+      <p class="text-gray-600">A food delivery system that allows users to buy food and track orders, also allow resturants to receive orders and change status of the orders.</p>
+    </div>
+   
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+      <img src="img/soko.png" alt="Project 2" class="w-full h-40 object-cover rounded mb-4">
+      <h3 class="text-xl font-semibold mb-2">Sokudu game</h3>
+      <p class="text-gray-600">A sokodu game built using java.</p>
+    </div>
+
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+      <img src="img/tms (1).png" alt="Project 3" class="w-full h-40 object-cover rounded mb-4">
+      <img src="img/tms (2).png" alt="Project 3" class="w-full h-40 object-cover rounded mb-4">
+      <h3 class="text-xl font-semibold mb-2">Time management System</h3>
+      <p class="text-gray-600">A Company time management system that helps executives and secretary to manage task and an automatic task scheduling system.</p>
+    </div>
+
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+      <img src="img/1728894645447.jpeg" alt="Project 3" class="w-full h-40 object-cover rounded mb-4">
+      <img src="img/old.jpeg" alt="Project 3" class="w-full h-40 object-cover rounded mb-4">
+      <h3 class="text-xl font-semibold mb-2">Evaluation of Department of home affairs website</h3>
+      <p class="text-gray-600">I evaluated the home affairs system, I came up with a better user friendly and responsive design.</p>
+    </div>
+
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+      <img src="img/kali-linux.jpg" alt="Project 3" class="w-full h-40 object-cover rounded mb-4">
+      <img src="img/kali-linux.jpg" alt="Project 3" class="w-full h-40 object-cover rounded mb-4">
+      <h3 class="text-xl font-semibold mb-2">Cyber Awareness Chatbot</h3>
+      <p class="text-gray-600">A secure login system with hashing and validation using JavaScript and PHP.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Me -->
+<section  id="call"  class="py-20 px-6 md:px-40 bg-cover bg-center relative" style="background-image: url('img/page1.jpg');">
+  <div class="absolute inset-0 bg-black bg-opacity-60"></div> <!-- Overlay for readability -->
+
+  <div class="relative z-10">
+    <h2 class="text-4xl font-bold text-white mb-12 text-center">Contact Me</h2>
+    <form action="mailto:Mufunwa54@gmail.com" method="POST" enctype="text/plain" class="max-w-2xl mx-auto space-y-6 bg-white bg-opacity-95 p-8 shadow-lg rounded-lg">
+      <div>
+        <label class="block mb-2 text-sm font-medium text-gray-700">Name</label>
+        <input type="text" name="Name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required>
+      </div>
+      <div>
+        <label class="block mb-2 text-sm font-medium text-gray-700">Email</label>
+        <input type="email" name="Email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required>
+      </div>
+      <div>
+        <label class="block mb-2 text-sm font-medium text-gray-700">Message</label>
+        <textarea name="Message" rows="5" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required></textarea>
+      </div>
+      <button type="submit" class="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-full font-semibold">
+        Send Message
+      </button>
+    </form>
+    
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-10 px-6 md:px-40">
+  <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+    <p class="text-sm">&copy; 2025 Mufunwaini Mufhumudzi. All rights reserved.</p>
+    <div class="flex space-x-6">
+      <!-- GitHub -->
+      <a href="https://github.com/MUFUNWAINI-MUFHUMUDZI-SINGO" target="_blank" class="text-gray-400 hover:text-white transition">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.263.82-.583v-2.256c-3.338.726-4.033-1.416-4.033-1.416-.546-1.39-1.333-1.76-1.333-1.76-1.09-.745.082-.729.082-.729 1.205.086 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.42-1.305.763-1.604-2.665-.3-5.467-1.334-5.467-5.932 0-1.31.47-2.38 1.236-3.22-.124-.303-.536-1.524.118-3.176 0 0 1.008-.323 3.3 1.23a11.51 11.51 0 013.003-.404c1.02.005 2.045.138 3.003.404 2.29-1.553 3.296-1.23 3.296-1.23.656 1.653.244 2.874.12 3.176.77.84 1.234 1.91 1.234 3.22 0 4.61-2.807 5.628-5.48 5.922.432.373.816 1.102.816 2.222v3.293c0 .322.216.698.824.58C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/mufunwa" target="_blank" class="text-gray-400 hover:text-white transition">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V9h3v10zM6.5 7.5C5.67 7.5 5 6.83 5 6s.67-1.5 1.5-1.5S8 5.17 8 6s-.67 1.5-1.5 1.5zM19 19h-3v-5.6c0-3.07-4-2.84-4 0V19h-3V9h3v1.54C13.1 8.79 19 8.43 19 13.36V19z"/>
+        </svg>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:mufunwa54@gmail.com" class="text-gray-400 hover:text-white transition">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/27658009179" target="_blank" class="text-gray-400 hover:text-white transition">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 32 32">
+          <path d="M16.003 2.003c-7.732 0-14 6.268-14 14 0 2.469.647 4.896 1.872 7.037l-1.968 7.295 7.474-1.956A13.977 13.977 0 0016.003 30c7.732 0 14-6.268 14-14s-6.268-14-14-14zm0 25.4a11.35 11.35 0 01-5.775-1.555l-.413-.243-4.429 1.158 1.181-4.313-.269-.442a11.315 11.315 0 01-1.75-6.048c0-6.257 5.093-11.35 11.35-11.35s11.35 5.093 11.35 11.35-5.093 11.35-11.35 11.35zm6.428-8.592c-.316-.158-1.868-.921-2.157-1.026-.289-.106-.5-.158-.711.158s-.816 1.025-1.001 1.237c-.184.211-.368.237-.684.079-.316-.158-1.335-.492-2.545-1.57-.94-.837-1.573-1.872-1.755-2.188-.184-.316-.02-.487.138-.645.142-.141.316-.369.474-.553.158-.184.211-.316.316-.526.105-.21.053-.395-.027-.553-.079-.158-.711-1.711-.975-2.34-.257-.615-.519-.527-.711-.537l-.605-.011c-.211 0-.553.079-.842.395s-1.106 1.081-1.106 2.633 1.133 3.051 1.292 3.266c.158.211 2.229 3.403 5.399 4.773.755.326 1.342.52 1.8.665.756.24 1.444.205 1.986.125.606-.09 1.868-.76 2.132-1.493.263-.737.263-1.368.184-1.494-.078-.125-.289-.21-.605-.369z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
